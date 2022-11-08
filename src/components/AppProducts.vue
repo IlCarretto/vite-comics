@@ -5,31 +5,36 @@ export default {
         return {
             products: [
                 {
-                    img: "/buy-comics-digital-comics.png",
+                    img: "-comics-digital-comics.png",
                     href: "/digitalcomics",
                     name: "DIGITAL COMICS",
                 },
                 {
-                    img: "/buy-comics-merchandise.png",
+                    img: "-comics-merchandise.png",
                     href: "/dcmerchandise",
                     name: "DC MERCHANDISE",
                 },
                 {
-                    img: "/buy-comics-shop-locator.png",
+                    img: "-comics-shop-locator.png",
                     href: "/comicshoplocator",
                     name: "COMIC SHOP LOCATOR",
                 },
                 {
-                    img: "/buy-comics-subscriptions.png",
+                    img: "-comics-subscriptions.png",
                     href: "/subscription",
                     name: "SUBSCRIPTION",
                 },
                 {
-                    img: "/buy-dc-power-visa.svg",
+                    img: "-dc-power-visa.svg",
                     href: "/dcpowervisa",
                     name: "DC POWER VISA",
                 },
             ]
+        }
+    },
+    methods: {
+        getPathImg(url) {
+            return new URL(url, import.meta.url).href;
         }
     }
 }
@@ -42,7 +47,7 @@ export default {
                 <ul>
                     <li v-for="(product, index) in products" :key="index">
                         <a href="product.href">
-                            <img :src=" '../assets/img' + product.img" alt="">
+                            <img :src="getPathImg(`../assets/img/buy${product.img}`)" alt="">
                             <p>{{product.name}}</p>
                         </a>
                     </li>
@@ -57,13 +62,35 @@ export default {
         background-color: #0282f9;
         height: 150px;
 
-        ul {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
+        .container {
+            height: 100%;
+        }
+        .main-nav {
+            height: 100%;
 
-            li {
-                color: white;
+            ul {
+                height: 100%;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                
+                li {
+                    color: white;
+
+                    a {
+                        display: flex;
+                        align-items: center;
+                        font-size: .8rem;
+                        
+                        img {
+                            width: 50px;
+                        }
+
+                        p {
+                            margin-left: .5rem;
+                        }
+                    }
+                }
             }
         }
     }
