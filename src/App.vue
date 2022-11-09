@@ -1,13 +1,13 @@
 <script>
 import AppHeader from "./components/AppHeader.vue";
-import OurContent from "./components/OurContent.vue";
+import SeriesSection from "./components/SeriesSection.vue";
 import AppProducts from "./components/AppProducts.vue";
 import AppFooter from "./components/AppFooter.vue";
 
 export default {
   components: {
     AppHeader,
-    OurContent,
+    SeriesSection,
     AppProducts,
     AppFooter
   }
@@ -16,7 +16,7 @@ export default {
 
 <template>
 <AppHeader/>
-<OurContent/>
+<SeriesSection/>
 <AppProducts/>
 <AppFooter/>
 </template>

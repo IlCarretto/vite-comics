@@ -180,6 +180,7 @@ export default {
         width: 100%;
         height: 400px;
         background-image: url(../assets/img/footer-bg.jpg);
+        background-size: cover;
 
         .container {
             height: 100%;
