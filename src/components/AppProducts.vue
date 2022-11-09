@@ -60,7 +60,7 @@ export default {
 <style lang="scss" scoped>
     .products-main {
         background-color: #0282f9;
-        height: 150px;
+        height: 200px;
 
         .container {
             height: 100%;

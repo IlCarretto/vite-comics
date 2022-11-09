@@ -92,7 +92,29 @@ export default {
                 {
                     name: "MAD Magazine"
                 }
+            ],
+            socialsIcons: [
+                {
+                    name: "-facebook.png"
+                },
+                {
+                    name: "-periscope.png"
+                },
+                {
+                    name: "-pinterest.png"
+                },
+                {
+                    name: "-twitter.png"
+                },
+                {
+                    name: "-youtube.png"
+                }
             ]
+        }
+    },
+    methods: {
+        getPathImg(url) {
+            return new URL(url, import.meta.url).href;
         }
     }
 }
@@ -103,7 +125,7 @@ export default {
         <div class="container">
             <div class="footer-top">
                 <div class="footer-list">
-                    <div class="first-list">
+                    <div class="col">
                         <ul>
                             <li v-for="comic in comicsList">
                                 <a :class="{'list-title' : comic.title}" href="">{{comic.name}}</a>
@@ -115,14 +137,14 @@ export default {
                             </li>
                         </ul>
                     </div>
-                    <div class="second-list">
+                    <div class="col">
                         <ul>
                             <li v-for="dc in dcList">
                                 <a :class="{'list-title' : dc.title}" href="">{{dc.name}}</a>
                             </li>
                         </ul>
                     </div>
-                    <div class="third-list">
+                    <div class="col">
                         <ul>
                             <li v-for="site in sitesList">
                                 <a :class="{'list-title' : site.title}" href="">{{site.name}}</a>
@@ -136,7 +158,19 @@ export default {
             </div>
         </div>
             <div class="footer-bottom">
-
+                <div class="container">
+                    <div class="btn-container">
+                        <a class="btn">SIGN-UP NOW!</a>
+                    </div>
+                    <div class="socials">
+                        <h3 class="socials-title">FOLLOW US</h3>
+                        <div v-for="socialsIcon in socialsIcons" class="circle-icon">
+                            <a href="">
+                                <img :src="getPathImg(`../assets/img/footer${socialsIcon.name}`)" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
     </footer>
 </template>
@@ -144,7 +178,7 @@ export default {
 <style lang="scss" scoped>
     footer {
         width: 100%;
-        height: 350px;
+        height: 400px;
         background-image: url(../assets/img/footer-bg.jpg);
 
         .container {
@@ -158,7 +192,7 @@ export default {
 
             .footer-list {
                 display: flex;
-                align-items: center;
+                margin-top: 3rem;
 
                 ul {
                     padding-right: .5rem;
@@ -178,14 +212,40 @@ export default {
 
             }
             .footer-logo {
-            width: 400px;
+            width: 450px;
             overflow: hidden;
             }
         }   
         .footer-bottom {
             width: 100%;
-            height: 170px;
+            height: 76px;
             background-color: #303030;
+
+            .container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .btn {
+                    border: 1px solid #0282f9;
+                    color: white;
+                    padding: .8rem;
+                }
+
+                .socials {
+                    display: flex;
+
+                    &-title {
+                        color: #0282f9;
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    .circle-icon {
+                        margin-left: 1rem;
+                    }
+                }
+            }
         }
     }
 </style>
